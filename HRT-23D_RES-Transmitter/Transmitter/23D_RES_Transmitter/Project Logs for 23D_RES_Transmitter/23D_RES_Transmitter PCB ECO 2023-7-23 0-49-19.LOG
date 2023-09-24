@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=BEEP Pin=U2-25
+Removed Pin From Net: NetName=YELLOW Pin=U2-27
+Added Pin To Net: NetName=YELLOW Pin=U2-25
+Added Pin To Net: NetName=BEEP Pin=U2-27
+Added Room: Name=23D_RES_Transmitter

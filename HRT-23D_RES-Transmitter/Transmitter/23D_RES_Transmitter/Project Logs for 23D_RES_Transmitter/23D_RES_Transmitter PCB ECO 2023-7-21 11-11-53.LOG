@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=3 Pin=U1-3
+Removed Pin From Net: NetName=3 Pin=U3-3
+Removed Pin From Net: NetName=3 Pin=U4-3
+Added Room: Name=23D_RES_Transmitter
