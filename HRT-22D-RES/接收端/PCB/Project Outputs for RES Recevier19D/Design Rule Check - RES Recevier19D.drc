@@ -1,0 +1,110 @@
+Protel Design System Design Rule Check
+PCB File : C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc
+Date     : 2021/7/2
+Time     : 17:48:27
+
+WARNING: Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again
+   Polygon named: Bottom Layer-No Net
+
+Processing Rule : Clearance Constraint (Gap=7mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
+Rule Violations :0
+
+Processing Rule : Un-Routed Net Constraint ( (All) )
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad C10-2(1894.997mil,2229.131mil) on Bottom Layer And Pad C7-1(2070mil,2280mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Track (1651.313mil,2198mil)(1670mil,2179.313mil) on Top Layer And Pad C10-2(1894.997mil,2229.131mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad C11-1(1682mil,2877mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad U5-1(2944.181mil,2308.811mil) on Top Layer And Pad C14-2(3073mil,2347mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad C14-2(3073mil,2347mil) on Bottom Layer And Pad U8-3(3222.115mil,2431.57mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (2633mil,2142mil) from Top Layer to Bottom Layer And Pad C17-1(2643mil,2190mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad C3-1(2221mil,3010mil) on Top Layer And Track (2225mil,3072mil)(2225mil,3108mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad R9-1(2598mil,2446mil) on Top Layer And Pad C5-2(2703.268mil,2370mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad R17-1(2035mil,2078.378mil) on Bottom Layer And Pad C7-1(2070mil,2280mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad C8-2(1735.131mil,2996.003mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad D5-2(1675mil,3130mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad K2-1(3337.314mil,2931.214mil) on Bottom Layer And Via (3590mil,2938mil) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (1595mil,2657mil) from Top Layer to Bottom Layer And Pad U4-1(1805mil,2489.449mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad U6-1(3113.885mil,2687.627mil) on Bottom Layer And Pad U6-3(3113.885mil,2762.43mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad U6-3(3113.885mil,2762.43mil) on Bottom Layer And Via (3133mil,3057mil) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Pad U8-3(3222.115mil,2431.57mil) on Bottom Layer And Pad U8-1(3222.115mil,2506.373mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (2165mil,3860mil) from Top Layer to Bottom Layer And Track (2207mil,3837mil)(2240mil,3870mil) on Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (2593mil,2903mil) from Top Layer to Bottom Layer And Track (2754.866mil,2904mil)(2790.031mil,2904mil) on Top Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (2670mil,3079mil) from Top Layer to Bottom Layer And Via (2806.889mil,3014mil) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (3229mil,1406mil) from Top Layer to Bottom Layer And Via (3229mil,1443mil) from Top Layer to Bottom Layer 
+   Violation between Un-Routed Net Constraint: Net GND_D Between Via (3229mil,1443mil) from Top Layer to Bottom Layer And Via (3230mil,1489.913mil) from Top Layer to Bottom Layer 
+Rule Violations :21
+
+Processing Rule : Width Constraint (Min=10mil) (Max=110mil) (Preferred=10mil) (All)
+Rule Violations :0
+
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Rule Violations :0
+
+Processing Rule : Hole Size Constraint (Min=1mil) (Max=200mil) (All)
+Rule Violations :0
+
+Processing Rule : Hole To Hole Clearance (Gap=0mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Silk To Solder Mask (Clearance=0mil) (IsPad),(All)
+Rule Violations :0
+
+Processing Rule : Silk to Silk (Clearance=0mil) (All),(All)
+Rule Violations :0
+
+Processing Rule : Net Antennae (Tolerance=0mil) (All)
+   Violation between Net Antennae: Via (1595mil,2657mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1615mil,1885mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1785mil,3670mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1945mil,2777mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (1960mil,1115.606mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2095mil,1385mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2154mil,3005mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2165mil,3860mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2188mil,3405mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2296.536mil,2464.049mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2550mil,1195mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2633mil,2142mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2670mil,3079mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2745mil,2000mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2778mil,1772mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2795mil,2350mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (2806.889mil,3014mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3060mil,1700mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3100mil,1245mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3111.879mil,1369mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3111.879mil,1406mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3111.879mil,1443mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3111.879mil,1489.913mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3111.879mil,1540mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3133mil,3057mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3140mil,1290mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3140mil,1335mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3180mil,2130mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3200mil,1290mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3200mil,1335mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3229mil,1369mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3229mil,1406mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3229mil,1443mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3230mil,1489.913mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3230mil,1540mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3240mil,1245mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3380mil,1265mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3430mil,1890mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3520mil,2470mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3590mil,2938mil) from Top Layer to Bottom Layer 
+   Violation between Net Antennae: Via (3724mil,2679mil) from Top Layer to Bottom Layer 
+Rule Violations :41
+
+Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Rule Violations :0
+
+
+Violations Detected : 62
+Waived Violations : 0
+Time Elapsed        : 00:00:00

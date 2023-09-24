@@ -1,0 +1,38 @@
+Removed Pin From Net: NetName=OUT Pin=P1-1
+Removed Pin From Net: NetName=IN Pin=P1-2
+Removed Pin From Net: NetName=GND_D Pin=P1-6
+Removed Pin From Net: NetName=GND_D Pin=P1-7
+Removed Pin From Net: NetName=CAN_H Pin=P2-3
+Removed Pin From Net: NetName=CAN_L Pin=P2-4
+Removed Pin From Net: NetName=CAN_L Pin=P2-5
+Removed Pin From Net: NetName=CAN_H Pin=P2-6
+Removed Pin From Net: NetName=CAN_H Pin=P2-6
+Removed Pin From Net: NetName=GND_D Pin=P2-9
+Removed Pin From Net: NetName=SWCLK Pin=P2-10
+Removed Pin From Net: NetName=SWDIO Pin=P2-11
+Removed Pin From Net: NetName=VCC_3V3 Pin=P2-12
+Removed Pin From Net: NetName=VCC_3V3 Pin=P2-12
+Removed Member From Class: ClassName=RES Receiver19D Member=P2
+Change Component DesignItemId : Designator=P1 Old DesignItemId=JAE_MX34007NF1 New DesignItemId=JAE_MX34016NF1
+Change Component Footprint: Designator=P1 Old Footprint=JAE_MX34_2.2_7 New Footprint=JAE_MX34_2.2_16
+Change Component Comment : Designator=P1 Old Comment=JAE_MX340_7 New Comment=JAE_MX340_16
+Added Pin To Net: NetName=IN Pin=P1-1
+Added Pin To Net: NetName=IN Pin=P1-1
+Added Pin To Net: NetName=OUT Pin=P1-2
+Added Pin To Net: NetName=GND_D Pin=P1-3
+Added Pin To Net: NetName=GND_D Pin=P1-4
+Added Pin To Net: NetName=VCC_3V3 Pin=P1-9
+Added Pin To Net: NetName=VCC_3V3 Pin=P1-9
+Added Pin To Net: NetName=SWDIO Pin=P1-10
+Added Pin To Net: NetName=SWCLK Pin=P1-11
+Added Pin To Net: NetName=GND_D Pin=P1-12
+Added Pin To Net: NetName=CAN_H Pin=P1-13
+Added Pin To Net: NetName=CAN_L Pin=P1-14
+Added Pin To Net: NetName=CAN_L Pin=P1-15
+Added Pin To Net: NetName=CAN_H Pin=P1-16
+Change Net Name : Old Net Name=NetD1_1 New Net Name=MX34_1
+Added Pin To Net: NetName=MX34_2 Pin=D2-2
+Added Pin To Net: NetName=MX34_2 Pin=P1-6
+Added Pin To Net: NetName=MX34_2 Pin=R3-1
+Added Net: Name=MX34_2
+Added Room: Name=RES Receiver19D

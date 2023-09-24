@@ -1,0 +1,13 @@
+Added Component: Designator=U5(USART_Module)
+Added Pin To Net: NetName=GND_D Pin=U5-1
+Added Pin To Net: NetName=M1 Pin=U5-2
+Added Pin To Net: NetName=USART_TX Pin=U5-3
+Added Pin To Net: NetName=USART_RX Pin=U5-4
+Added Pin To Net: NetName=VCC_5V Pin=U5-6
+Added Pin To Net: NetName=GND_D Pin=U5-7
+Added Pin To Net: NetName=GND_D Pin=U5-9
+Added Pin To Net: NetName=GND_D Pin=U5-15
+Added Pin To Net: NetName=GND_D Pin=U5-16
+Added Pin To Net: NetName=GND_D Pin=U5-17
+Added Member To Class: ClassName=RES Receiver19D Member=Component U5 USART_Module
+Added Room: Name=RES Receiver19D

@@ -1,0 +1,11 @@
+Change Component DesignItemId : Designator=PZ3 Old DesignItemId= New DesignItemId=ÅÅÕë
+Change Component DesignItemId : Designator=PZ4 Old DesignItemId= New DesignItemId=ÅÅÕë
+Change Component Comment : Designator=PZ3 Old Comment=Comment New Comment=PZ3
+Change Component Comment : Designator=PZ4 Old Comment=Comment New Comment=PZ4
+Change Component Designator: OldDesignator=PZ1 NewDesignator=ÅÅÕë1
+Change Component Designator: OldDesignator=PZ2 NewDesignator=ÅÅÕë2
+Change Component Library : Designator=PZ3 Old Library= New Library=HRT_D Integrated_Library.IntLib
+Change Component Library : Designator=PZ4 Old Library= New Library=HRT_D Integrated_Library.IntLib
+Added Member To Class: ClassName=RES Receiver19D Member=Component PZ3
+Added Member To Class: ClassName=RES Receiver19D Member=Component PZ4
+Added Room: Name=RES Receiver19D

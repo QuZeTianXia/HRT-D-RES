@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=IN Pin=P1-1
+Removed Pin From Net: NetName=IN Pin=P1-1
+Removed Pin From Net: NetName=OUT Pin=P1-2
+Added Pin To Net: NetName=IN Pin=P1-7
+Added Pin To Net: NetName=OUT Pin=P1-8
+Added Room: Name=RES Receiver19D

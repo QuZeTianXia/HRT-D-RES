@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=SWDIO Pin=P1-4
+Removed Pin From Net: NetName=GND_D Pin=P1-6
+Change Component Designator: OldDesignator=PZ1 NewDesignator=ÅÅÕë1
+Change Component Designator: OldDesignator=PZ2 NewDesignator=ÅÅÕë2
+Added Pin To Net: NetName=GND_D Pin=P1-4
+Added Pin To Net: NetName=SWDIO Pin=P1-6
+Added Room: Name=RES Receiver19D

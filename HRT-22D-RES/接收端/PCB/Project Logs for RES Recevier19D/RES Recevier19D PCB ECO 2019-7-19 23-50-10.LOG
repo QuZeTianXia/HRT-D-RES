@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=M1 Pin=PZ1-1
+Removed Pin From Net: NetName=GND_D Pin=PZ2-1
+Removed Member From Class: ClassName=RES Receiver19D Member=PZ1
+Removed Member From Class: ClassName=RES Receiver19D Member=PZ2
+Added Room: Name=RES Receiver19D

@@ -1,0 +1,29 @@
+Removed Pin From Net: NetName=IN Pin=P1-1
+Removed Pin From Net: NetName=OUT Pin=P1-2
+Removed Pin From Net: NetName=MX34_GND Pin=P1-3
+Removed Pin From Net: NetName=MX34_GND Pin=P1-4
+Removed Pin From Net: NetName=GND Pin=P1-5
+Removed Pin From Net: NetName=NetD1_1 Pin=P1-6
+Removed Pin From Net: NetName=NetD1_1 Pin=P1-6
+Removed Pin From Net: NetName=MX34_GND Pin=P1-7
+Removed Pin From Net: NetName=SWCLK Pin=P1-8
+Removed Pin From Net: NetName=SWDIO Pin=P1-9
+Removed Pin From Net: NetName=VCC_3V3 Pin=P1-10
+Removed Pin From Net: NetName=CAN_H Pin=P2-2
+Removed Pin From Net: NetName=CAN_L Pin=P2-3
+Removed Pin From Net: NetName=CAN_L Pin=P2-4
+Removed Pin From Net: NetName=CAN_H Pin=P2-5
+Removed Member From Class: ClassName=RES Receiver19D Member=P2
+Added Component: Designator=P1(JAE_MX34_2.2_7)
+Added Pin To Net: NetName=MX34_GND Pin=P1-2
+Added Pin To Net: NetName=CAN_H Pin=P1-3
+Added Pin To Net: NetName=MX34_GND Pin=P1-3
+Added Pin To Net: NetName=CAN_L Pin=P1-4
+Added Pin To Net: NetName=GND Pin=P1-4
+Added Pin To Net: NetName=CAN_L Pin=P1-5
+Added Pin To Net: NetName=NetD1_1 Pin=P1-5
+Added Pin To Net: NetName=CAN_H Pin=P1-6
+Added Pin To Net: NetName=OUT Pin=P1-6
+Added Pin To Net: NetName=IN Pin=P1-7
+Added Pin To Net: NetName=MX34_GND Pin=P1-9
+Added Room: Name=RES Receiver19D

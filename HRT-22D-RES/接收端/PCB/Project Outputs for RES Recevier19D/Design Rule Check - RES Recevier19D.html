@@ -1,0 +1,525 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://D:\AD19 DOC\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2021/7/2</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">17:48:27</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:00</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc" class="file"><acronym title="C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc">C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">1</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">62</td></tr>
+</table>
+</td>
+</table><a name="IDWLMZ2JBE4RC4LYV5TK00AAOB4PUT0ILNAJBFEEM1Z4U2CDP1NDSE"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDSYYN2BX0WI0ZCCARUYT1ETARXCP2BY1BE50WUTMHP323LHPQHE2L">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</a></td>
+<td class="column2">1</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">1</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDNATBDNQBVL4QOCKRYJG5RSDVJIOHWDUWZLTWNKNVJ0AUB5OQRUEJ">Clearance Constraint (Gap=7mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTDBILEOU0VOVMQG1ELUQWFHOKGNKTG252P0PDLE51WO0YMMEOE4">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCDCBINOO4AWMKG5A3UTOBGAUXDU2FOP2W3UUEJB3XHWKXCRXFZJI">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">21</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDV3OUEGI4KI3QHB0X0DP3AIVDVCKC22T3JKFYXCF45XVU4MOMEXVK">Width Constraint (Min=10mil) (Max=110mil) (Preferred=10mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDVY5GZZ3SN5PWGUQDQGAPWIUVXX01YOSEAR53TJW02BLEUBE03MI">Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDFJT3N5BYBFF1LKEDWAQYFTX1KM31LSTCAXQN2LPCNISUXVGHDTLC">Hole Size Constraint (Min=1mil) (Max=200mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDZ1PWGAQC0I52CKZQL1ZHWZNR3CM2F3RZ3I2UQWBVHWJEDSLNJY1O">Hole To Hole Clearance (Gap=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJ1AE2RJLSTAVK2UHYOOUODRKSLSILSSPJHEI20O4T12OCHUGZ2YD">Minimum Solder Mask Sliver (Gap=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDMS3WBBEOWOGPM0PVNWL0TSRA0GS0DGEZ4G5YSLCDKKBJ0NFKVGX">Silk To Solder Mask (Clearance=0mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDD0KZ5CFQJOQNNXVZQQEWX4FF1P5JSE3UIB0ABXKK3FNXOXOZG0CB">Silk to Silk (Clearance=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHRWVH45I2JUQG32LGZJKGCVYWJUIVIK3FWUFDNBODJLVI3CC5VEI">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">41</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDHGYHJU2X1KWNGTPJJWFBNARONHFB3YO30SJXYJNXQB12NC5UGMZL">Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">62</td>
+</tr>
+</table><br><a name="IDHOGTMVVVIFGFLR1ODDKWOOMHNFWZKQ10JVYVDOEEBDCXKYOHSCHO"><h2>Warnings</h2></a><a name="IDSYYN2BX0WI0ZCCARUYT1ETARXCP2BY1BE50WUTMHP323LHPQHE2L"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="warning">Design contains shelved or modified (but not repoured) polygons. The result of DRC is not correct. Recommended to restore/repour all polygons and proceed with DRC again</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1">Polygon named: Bottom Layer-No Net</td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCDCBINOO4AWMKG5A3UTOBGAUXDU2FOP2W3UUEJB3XHWKXCRXFZJI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Un-Routed Net Constraint ( (All) )</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1845.997mil|Location2.X=2099mil|Location1.Y=2187.631mil|Location2.Y=2309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1845.997mil|Location2.X=2099mil|Location1.Y=2187.631mil|Location2.Y=2309mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad C10-2(1894.997mil,2229.131mil) on Bottom Layer And Pad C7-1(2070mil,2280mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570mil|Location2.X=1994.997mil|Location1.Y=2079.313mil|Location2.Y=2329.131mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1570mil|Location2.X=1994.997mil|Location1.Y=2079.313mil|Location2.Y=2329.131mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Track (1651.313mil,2198mil)(1670mil,2179.313mil) on Top Layer And Pad C10-2(1894.997mil,2229.131mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1782mil|Location1.Y=2880.687mil|Location2.Y=2977mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1782mil|Location1.Y=2880.687mil|Location2.Y=2977mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad C11-1(1682mil,2877mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2881.126mil|Location2.X=3102mil|Location1.Y=2287.095mil|Location2.Y=2376mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2881.126mil|Location2.X=3102mil|Location1.Y=2287.095mil|Location2.Y=2376mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad U5-1(2944.181mil,2308.811mil) on Top Layer And Pad C14-2(3073mil,2347mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3044mil|Location2.X=3249.737mil|Location1.Y=2318mil|Location2.Y=2445.412mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3044mil|Location2.X=3249.737mil|Location1.Y=2318mil|Location2.Y=2445.412mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad C14-2(3073mil,2347mil) on Bottom Layer And Pad U8-3(3222.115mil,2431.57mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614mil|Location2.X=2672mil|Location1.Y=2126mil|Location2.Y=2219mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2614mil|Location2.X=2672mil|Location1.Y=2126mil|Location2.Y=2219mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (2633mil,2142mil) from Top Layer to Bottom Layer And Pad C17-1(2643mil,2190mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121mil|Location2.X=2325mil|Location1.Y=2910mil|Location2.Y=3172mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2121mil|Location2.X=2325mil|Location1.Y=2910mil|Location2.Y=3172mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad C3-1(2221mil,3010mil) on Top Layer And Track (2225mil,3072mil)(2225mil,3108mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2569mil|Location2.X=2732.268mil|Location1.Y=2341mil|Location2.Y=2475mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2569mil|Location2.X=2732.268mil|Location1.Y=2341mil|Location2.Y=2475mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad R9-1(2598mil,2446mil) on Top Layer And Pad C5-2(2703.268mil,2370mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006mil|Location2.X=2099mil|Location1.Y=2049.378mil|Location2.Y=2309mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006mil|Location2.X=2099mil|Location1.Y=2049.378mil|Location2.Y=2309mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad R17-1(2035mil,2078.378mil) on Bottom Layer And Pad C7-1(2070mil,2280mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1835.131mil|Location1.Y=2880.687mil|Location2.Y=3096.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1835.131mil|Location1.Y=2880.687mil|Location2.Y=3096.003mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad C8-2(1735.131mil,2996.003mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1775mil|Location1.Y=2880.687mil|Location2.Y=3230mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1572.5mil|Location2.X=1775mil|Location1.Y=2880.687mil|Location2.Y=3230mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Track (1567.5mil,2980.687mil)(1672.5mil,2980.687mil) on Top Layer And Pad D5-2(1675mil,3130mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3293.943mil|Location2.X=3606mil|Location1.Y=2897.687mil|Location2.Y=2964.742mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3293.943mil|Location2.X=3606mil|Location1.Y=2897.687mil|Location2.Y=2964.742mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad K2-1(3337.314mil,2931.214mil) on Bottom Layer And Via (3590mil,2938mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1579mil|Location2.X=1854.276mil|Location1.Y=2466.748mil|Location2.Y=2673mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1579mil|Location2.X=1854.276mil|Location1.Y=2466.748mil|Location2.Y=2673mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (1595mil,2657mil) from Top Layer to Bottom Layer And Pad U4-1(1805mil,2489.449mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.263mil|Location2.X=3141.507mil|Location1.Y=2673.784mil|Location2.Y=2776.272mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.263mil|Location2.X=3141.507mil|Location1.Y=2673.784mil|Location2.Y=2776.272mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad U6-1(3113.885mil,2687.627mil) on Bottom Layer And Pad U6-3(3113.885mil,2762.43mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.263mil|Location2.X=3149mil|Location1.Y=2748.587mil|Location2.Y=3073mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3086.263mil|Location2.X=3149mil|Location1.Y=2748.587mil|Location2.Y=3073mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad U6-3(3113.885mil,2762.43mil) on Bottom Layer And Via (3133mil,3057mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.493mil|Location2.X=3249.737mil|Location1.Y=2417.727mil|Location2.Y=2520.216mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3194.493mil|Location2.X=3249.737mil|Location1.Y=2417.727mil|Location2.Y=2520.216mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Pad U8-3(3222.115mil,2431.57mil) on Bottom Layer And Pad U8-1(3222.115mil,2506.373mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2065mil|Location2.X=2340mil|Location1.Y=3760mil|Location2.Y=3970mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2065mil|Location2.X=2340mil|Location1.Y=3760mil|Location2.Y=3970mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (2165mil,3860mil) from Top Layer to Bottom Layer And Track (2207mil,3837mil)(2240mil,3870mil) on Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493mil|Location2.X=2854.866mil|Location1.Y=2803mil|Location2.Y=3004mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493mil|Location2.X=2854.866mil|Location1.Y=2803mil|Location2.Y=3004mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (2593mil,2903mil) from Top Layer to Bottom Layer And Track (2754.866mil,2904mil)(2790.031mil,2904mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2654mil|Location2.X=2822.889mil|Location1.Y=2998mil|Location2.Y=3095mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2654mil|Location2.X=2822.889mil|Location1.Y=2998mil|Location2.Y=3095mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (2670mil,3079mil) from Top Layer to Bottom Layer And Via (2806.889mil,3014mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3213mil|Location2.X=3245mil|Location1.Y=1390mil|Location2.Y=1459mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3213mil|Location2.X=3245mil|Location1.Y=1390mil|Location2.Y=1459mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (3229mil,1406mil) from Top Layer to Bottom Layer And Via (3229mil,1443mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3213mil|Location2.X=3246mil|Location1.Y=1427mil|Location2.Y=1505.913mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3213mil|Location2.X=3246mil|Location1.Y=1427mil|Location2.Y=1505.913mil|Absolute=True">Un-Routed Net Constraint: Net GND_D Between Via (3229mil,1443mil) from Top Layer to Bottom Layer And Via (3230mil,1489.913mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDHRWVH45I2JUQG32LGZJKGCVYWJUIVIK3FWUFDNBODJLVI3CC5VEI"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Net Antennae (Tolerance=0mil) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1575.5mil|Location2.X=1623.035mil|Location1.Y=2637.5mil|Location2.Y=2711.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1575.5mil|Location2.X=1623.035mil|Location1.Y=2637.5mil|Location2.Y=2711.656mil|Absolute=True">Net Antennae: Via (1595mil,2657mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.5mil|Location2.X=1643.035mil|Location1.Y=1865.5mil|Location2.Y=1939.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1595.5mil|Location2.X=1643.035mil|Location1.Y=1865.5mil|Location2.Y=1939.656mil|Absolute=True">Net Antennae: Via (1615mil,1885mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1765.5mil|Location2.X=1813.035mil|Location1.Y=3650.5mil|Location2.Y=3724.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1765.5mil|Location2.X=1813.035mil|Location1.Y=3650.5mil|Location2.Y=3724.656mil|Absolute=True">Net Antennae: Via (1785mil,3670mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1925.5mil|Location2.X=1973.035mil|Location1.Y=2757.5mil|Location2.Y=2831.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1925.5mil|Location2.X=1973.035mil|Location1.Y=2757.5mil|Location2.Y=2831.656mil|Absolute=True">Net Antennae: Via (1945mil,2777mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1940.5mil|Location2.X=1988.035mil|Location1.Y=1096.106mil|Location2.Y=1170.262mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1940.5mil|Location2.X=1988.035mil|Location1.Y=1096.106mil|Location2.Y=1170.262mil|Absolute=True">Net Antennae: Via (1960mil,1115.606mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2075.5mil|Location2.X=2123.035mil|Location1.Y=1365.5mil|Location2.Y=1439.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2075.5mil|Location2.X=2123.035mil|Location1.Y=1365.5mil|Location2.Y=1439.656mil|Absolute=True">Net Antennae: Via (2095mil,1385mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2134.5mil|Location2.X=2182.035mil|Location1.Y=2985.5mil|Location2.Y=3059.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2134.5mil|Location2.X=2182.035mil|Location1.Y=2985.5mil|Location2.Y=3059.656mil|Absolute=True">Net Antennae: Via (2154mil,3005mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2145.5mil|Location2.X=2193.035mil|Location1.Y=3840.5mil|Location2.Y=3914.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2145.5mil|Location2.X=2193.035mil|Location1.Y=3840.5mil|Location2.Y=3914.656mil|Absolute=True">Net Antennae: Via (2165mil,3860mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.5mil|Location2.X=2216.035mil|Location1.Y=3385.5mil|Location2.Y=3459.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2168.5mil|Location2.X=2216.035mil|Location1.Y=3385.5mil|Location2.Y=3459.656mil|Absolute=True">Net Antennae: Via (2188mil,3405mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.036mil|Location2.X=2324.571mil|Location1.Y=2444.549mil|Location2.Y=2518.704mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2277.036mil|Location2.X=2324.571mil|Location1.Y=2444.549mil|Location2.Y=2518.704mil|Absolute=True">Net Antennae: Via (2296.536mil,2464.049mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2530.5mil|Location2.X=2578.035mil|Location1.Y=1175.5mil|Location2.Y=1249.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2530.5mil|Location2.X=2578.035mil|Location1.Y=1175.5mil|Location2.Y=1249.656mil|Absolute=True">Net Antennae: Via (2550mil,1195mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2613.5mil|Location2.X=2661.035mil|Location1.Y=2122.5mil|Location2.Y=2196.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2613.5mil|Location2.X=2661.035mil|Location1.Y=2122.5mil|Location2.Y=2196.656mil|Absolute=True">Net Antennae: Via (2633mil,2142mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2650.5mil|Location2.X=2698.035mil|Location1.Y=3059.5mil|Location2.Y=3133.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2650.5mil|Location2.X=2698.035mil|Location1.Y=3059.5mil|Location2.Y=3133.656mil|Absolute=True">Net Antennae: Via (2670mil,3079mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2725.5mil|Location2.X=2773.035mil|Location1.Y=1980.5mil|Location2.Y=2054.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2725.5mil|Location2.X=2773.035mil|Location1.Y=1980.5mil|Location2.Y=2054.656mil|Absolute=True">Net Antennae: Via (2745mil,2000mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2758.5mil|Location2.X=2806.035mil|Location1.Y=1752.5mil|Location2.Y=1826.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2758.5mil|Location2.X=2806.035mil|Location1.Y=1752.5mil|Location2.Y=1826.656mil|Absolute=True">Net Antennae: Via (2778mil,1772mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2775.5mil|Location2.X=2823.035mil|Location1.Y=2330.5mil|Location2.Y=2404.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2775.5mil|Location2.X=2823.035mil|Location1.Y=2330.5mil|Location2.Y=2404.656mil|Absolute=True">Net Antennae: Via (2795mil,2350mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2787.389mil|Location2.X=2834.924mil|Location1.Y=2994.5mil|Location2.Y=3068.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2787.389mil|Location2.X=2834.924mil|Location1.Y=2994.5mil|Location2.Y=3068.656mil|Absolute=True">Net Antennae: Via (2806.889mil,3014mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3040.5mil|Location2.X=3088.035mil|Location1.Y=1680.5mil|Location2.Y=1754.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3040.5mil|Location2.X=3088.035mil|Location1.Y=1680.5mil|Location2.Y=1754.656mil|Absolute=True">Net Antennae: Via (3060mil,1700mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.5mil|Location2.X=3128.035mil|Location1.Y=1225.5mil|Location2.Y=1299.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3080.5mil|Location2.X=3128.035mil|Location1.Y=1225.5mil|Location2.Y=1299.656mil|Absolute=True">Net Antennae: Via (3100mil,1245mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1349.5mil|Location2.Y=1423.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1349.5mil|Location2.Y=1423.656mil|Absolute=True">Net Antennae: Via (3111.879mil,1369mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1386.5mil|Location2.Y=1460.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1386.5mil|Location2.Y=1460.656mil|Absolute=True">Net Antennae: Via (3111.879mil,1406mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1423.5mil|Location2.Y=1497.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1423.5mil|Location2.Y=1497.656mil|Absolute=True">Net Antennae: Via (3111.879mil,1443mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1470.413mil|Location2.Y=1544.569mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1470.413mil|Location2.Y=1544.569mil|Absolute=True">Net Antennae: Via (3111.879mil,1489.913mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1520.5mil|Location2.Y=1594.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3092.379mil|Location2.X=3139.914mil|Location1.Y=1520.5mil|Location2.Y=1594.656mil|Absolute=True">Net Antennae: Via (3111.879mil,1540mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.5mil|Location2.X=3161.035mil|Location1.Y=3037.5mil|Location2.Y=3111.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3113.5mil|Location2.X=3161.035mil|Location1.Y=3037.5mil|Location2.Y=3111.656mil|Absolute=True">Net Antennae: Via (3133mil,3057mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3120.5mil|Location2.X=3168.035mil|Location1.Y=1270.5mil|Location2.Y=1344.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3120.5mil|Location2.X=3168.035mil|Location1.Y=1270.5mil|Location2.Y=1344.656mil|Absolute=True">Net Antennae: Via (3140mil,1290mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3120.5mil|Location2.X=3168.035mil|Location1.Y=1315.5mil|Location2.Y=1389.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3120.5mil|Location2.X=3168.035mil|Location1.Y=1315.5mil|Location2.Y=1389.656mil|Absolute=True">Net Antennae: Via (3140mil,1335mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3160.5mil|Location2.X=3208.035mil|Location1.Y=2110.5mil|Location2.Y=2184.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3160.5mil|Location2.X=3208.035mil|Location1.Y=2110.5mil|Location2.Y=2184.656mil|Absolute=True">Net Antennae: Via (3180mil,2130mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3180.5mil|Location2.X=3228.035mil|Location1.Y=1270.5mil|Location2.Y=1344.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3180.5mil|Location2.X=3228.035mil|Location1.Y=1270.5mil|Location2.Y=1344.656mil|Absolute=True">Net Antennae: Via (3200mil,1290mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3180.5mil|Location2.X=3228.035mil|Location1.Y=1315.5mil|Location2.Y=1389.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3180.5mil|Location2.X=3228.035mil|Location1.Y=1315.5mil|Location2.Y=1389.656mil|Absolute=True">Net Antennae: Via (3200mil,1335mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1349.5mil|Location2.Y=1423.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1349.5mil|Location2.Y=1423.656mil|Absolute=True">Net Antennae: Via (3229mil,1369mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1386.5mil|Location2.Y=1460.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1386.5mil|Location2.Y=1460.656mil|Absolute=True">Net Antennae: Via (3229mil,1406mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1423.5mil|Location2.Y=1497.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3209.5mil|Location2.X=3257.035mil|Location1.Y=1423.5mil|Location2.Y=1497.656mil|Absolute=True">Net Antennae: Via (3229mil,1443mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3210.5mil|Location2.X=3258.035mil|Location1.Y=1470.413mil|Location2.Y=1544.569mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3210.5mil|Location2.X=3258.035mil|Location1.Y=1470.413mil|Location2.Y=1544.569mil|Absolute=True">Net Antennae: Via (3230mil,1489.913mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3210.5mil|Location2.X=3258.035mil|Location1.Y=1520.5mil|Location2.Y=1594.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3210.5mil|Location2.X=3258.035mil|Location1.Y=1520.5mil|Location2.Y=1594.656mil|Absolute=True">Net Antennae: Via (3230mil,1540mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3220.5mil|Location2.X=3268.035mil|Location1.Y=1225.5mil|Location2.Y=1299.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3220.5mil|Location2.X=3268.035mil|Location1.Y=1225.5mil|Location2.Y=1299.656mil|Absolute=True">Net Antennae: Via (3240mil,1245mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3360.5mil|Location2.X=3408.035mil|Location1.Y=1245.5mil|Location2.Y=1319.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3360.5mil|Location2.X=3408.035mil|Location1.Y=1245.5mil|Location2.Y=1319.656mil|Absolute=True">Net Antennae: Via (3380mil,1265mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3410.5mil|Location2.X=3458.035mil|Location1.Y=1870.5mil|Location2.Y=1944.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3410.5mil|Location2.X=3458.035mil|Location1.Y=1870.5mil|Location2.Y=1944.656mil|Absolute=True">Net Antennae: Via (3430mil,1890mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.5mil|Location2.X=3548.035mil|Location1.Y=2450.5mil|Location2.Y=2524.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3500.5mil|Location2.X=3548.035mil|Location1.Y=2450.5mil|Location2.Y=2524.656mil|Absolute=True">Net Antennae: Via (3520mil,2470mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3570.5mil|Location2.X=3618.035mil|Location1.Y=2918.5mil|Location2.Y=2992.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3570.5mil|Location2.X=3618.035mil|Location1.Y=2918.5mil|Location2.Y=2992.656mil|Absolute=True">Net Antennae: Via (3590mil,2938mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\%E3%80%90RES%E6%95%B4%E7%90%86%E6%96%87%E6%A1%A3%E3%80%91\RES%E6%8E%A5%E6%94%B6%E7%AB%AF20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.5mil|Location2.X=3752.035mil|Location1.Y=2659.5mil|Location2.Y=2733.656mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\zhengxuhui\Desktop\HRT\Res\【RES整理文档】\【RES整理文档】\RES接收端20D_PCB\RES Recevier19D.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3704.5mil|Location2.X=3752.035mil|Location1.Y=2659.5mil|Location2.Y=2733.656mil|Absolute=True">Net Antennae: Via (3724mil,2679mil) from Top Layer to Bottom Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

@@ -1,0 +1,50 @@
+Net Status Report
+Filename     : C:\Users\Steve\Desktop\RES Recevier19D\RES Recevier19D.PcbDoc
+Date         : 2019/7/7
+Time         : 20:31:29
+Time Elapsed : 00:00:00
+
+Nets, Layer, Length
+    ANL_REF, Signal Layers Only, 311.333mils
+    CAN_H, Signal Layers Only, 642.301mils
+    CAN_L, Signal Layers Only, 615.693mils
+    CAN_RX, Signal Layers Only, 158.685mils
+    CAN_TX, Signal Layers Only, 248.416mils
+    FUNC1, Signal Layers Only, 679.312mils
+    FUNC2, Signal Layers Only, 810.801mils
+    GND_D, Signal Layers Only, 900.92mils
+    IN, Signal Layers Only, 601.793mils
+    LED1, Signal Layers Only, 1556.3mils
+    LED2, Signal Layers Only, 1657.578mils
+    M1, Signal Layers Only, 187.909mils
+    MX34_1, Signal Layers Only, 146.821mils
+    MX34_2, Signal Layers Only, 424.412mils
+    NetC14_1, Signal Layers Only, 269.015mils
+    NetC16_2, Signal Layers Only, 349.331mils
+    NetC3_2, Signal Layers Only, 255.48mils
+    NetC4_2, Signal Layers Only, 259.653mils
+    NetD2_1, Signal Layers Only, 105.149mils
+    NetD3_1, Signal Layers Only, 669.411mils
+    NetD4_1, Signal Layers Only, 100mils
+    NetD5_1, Signal Layers Only, 95mils
+    NetD6_1, Signal Layers Only, 180mils
+    NetD7_1, Signal Layers Only, 180mils
+    NetJ1_1, Signal Layers Only, 879.985mils
+    NetJ1_2, Signal Layers Only, 943.612mils
+    NetQ1_1, Signal Layers Only, 112.598mils
+    NetR19_1, Signal Layers Only, 116.115mils
+    NetR1_1, Signal Layers Only, 105.184mils
+    NetR5_2, Signal Layers Only, 169.787mils
+    NetR7_2, Signal Layers Only, 675.31mils
+    NetR9_2, Signal Layers Only, 134.255mils
+    OUT, Signal Layers Only, 1292.652mils
+    RES, Signal Layers Only, 885.292mils
+    SAFETY CIRCLE, Signal Layers Only, 286.76mils
+    SWCLK, Signal Layers Only, 1320.259mils
+    SWDIO, Signal Layers Only, 1248.52mils
+    USART_RX, Signal Layers Only, 354.539mils
+    USART_TX, Signal Layers Only, 427.055mils
+    VCC_24, Signal Layers Only, 600.253mils
+    VCC_3V3, Signal Layers Only, 5693.125mils
+    VCC_5V, Signal Layers Only, 3141.275mils
+count : 42
