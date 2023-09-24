@@ -1,4 +1,0 @@
-Change Component DesignItemId : Designator=P1 Old DesignItemId=Header 4H New DesignItemId=JAE_MX34005NF1
-Change Component Footprint: Designator=P1 Old Footprint=HDR1X4H New Footprint=JAE_MX34_2.2_5
-Change Component Comment : Designator=P1 Old Comment=Header 4H New Comment=JAE_MX340_5
-Added Room: Name=RES Receiver19D

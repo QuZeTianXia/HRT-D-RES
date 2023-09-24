@@ -1,9 +1,0 @@
-Removed Pin From Net: NetName=GND_D Pin=P1-5
-Removed Pin From Net: NetName=VCC_3V3 Pin=P1-13
-Removed Pin From Net: NetName=SWDIO Pin=P1-14
-Removed Pin From Net: NetName=SWCLK Pin=P1-15
-Added Pin To Net: NetName=SWCLK Pin=P1-3
-Added Pin To Net: NetName=SWDIO Pin=P1-4
-Added Pin To Net: NetName=VCC_3V3 Pin=P1-5
-Added Pin To Net: NetName=GND_D Pin=P1-15
-Added Room: Name=RES Receiver19D

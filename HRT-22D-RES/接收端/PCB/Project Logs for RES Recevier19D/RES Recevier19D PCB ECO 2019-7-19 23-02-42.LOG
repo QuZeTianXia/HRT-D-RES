@@ -1,7 +1,0 @@
-Removed Pin From Net: NetName=USART_TX Pin=PZ3-1
-Removed Pin From Net: NetName=USART_RX Pin=PZ4-1
-Removed Member From Class: ClassName=RES Receiver19D Member=PZ3
-Removed Member From Class: ClassName=RES Receiver19D Member=PZ4
-Added Pin To Net: NetName=SWCLK Pin=P1-6
-Added Pin To Net: NetName=SWDIO Pin=P1-7
-Added Room: Name=RES Receiver19D

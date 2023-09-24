@@ -1,6 +1,0 @@
-Added Component: Designator=R0(R 0805)
-Added Pin To Net: NetName=NetR0_1 Pin=R0-1
-Added Pin To Net: NetName=NetR0_1 Pin=U5-18
-Added Net: Name=NetR0_1
-Added Member To Class: ClassName=RES Receiver19D Member=Component R0 Res
-Added Room: Name=RES Receiver19D

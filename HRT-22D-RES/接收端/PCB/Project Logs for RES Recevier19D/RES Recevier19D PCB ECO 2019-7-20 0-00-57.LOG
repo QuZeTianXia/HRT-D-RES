@@ -1,5 +1,0 @@
-Added Component: Designator=PZ1(PZ)
-Added Pin To Net: NetName=M1 Pin=PZ1-1
-Added Pin To Net: NetName=GND_D Pin=PZ1-2
-Added Member To Class: ClassName=RES Receiver19D Member=Component PZ1 PZ
-Added Room: Name=RES Receiver19D

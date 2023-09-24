@@ -1,9 +1,0 @@
-Removed Pin From Net: NetName=CAN_TX Pin=U1-16
-Removed Pin From Net: NetName=CAN_RX Pin=U1-18
-Removed Pin From Net: NetName=LED2 Pin=U1-25
-Removed Pin From Net: NetName=LED1 Pin=U1-26
-Added Pin To Net: NetName=CAN_RX Pin=U1-32
-Added Pin To Net: NetName=CAN_TX Pin=U1-33
-Added Pin To Net: NetName=LED1 Pin=U1-40
-Added Pin To Net: NetName=LED2 Pin=U1-41
-Added Room: Name=RES Receiver19D
