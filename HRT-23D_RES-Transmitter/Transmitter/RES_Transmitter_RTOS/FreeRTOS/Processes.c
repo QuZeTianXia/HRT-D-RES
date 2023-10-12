@@ -119,7 +119,7 @@ void Connection_Status_Monitor_Task(void *pvParameters)
 		}
 		else 
 		{
-			if(Offline_count > 200)
+			if(Offline_count > 100)
 			{				
 				OLED_ShowChinese(0,0,6,12,1);//Î´
 				Offline_Flag = 1;
@@ -143,18 +143,21 @@ void GO_Key_Schedule_Task(void *pvParameters)
 {
     while(1)
     {
-//		Lora_SendByte(0xa0);//´®¿Ú·¢ËÍ×Ö·ûº¯Êý·â×°
-//        vTaskDelay(50);
-		if(!Offline_Flag &&(RES_STATE == Ready|| RES_STATE == Slow_Stop)&& GO_Key_Flag && !Old_GO_Key_Flag && GO_Key_End == 0)
+		if(!Offline_Flag && RES_STATE == Ready && GO_Key_Flag && !Old_GO_Key_Flag && GO_Key_End == 0)
 		{
 			GO_Key_Count++;
 		}
+		if(!Offline_Flag && RES_STATE == Slow_Stop && GO_Key_Flag && !Old_GO_Key_Flag && GO_Key_End == 0 && GO_Exit_Flag)
+		{
+			GO_Key_Count++;
+		}		
 		if(!Offline_Flag && RES_STATE == GO && GO_Key_Flag && !Old_GO_Key_Flag && GO_Key_End == 1)
 		{
 			Old_RES_STATE = RES_STATE ;
 			RES_STATE = Slow_Stop ;
 			State_Switch_Count = 1;
 			State_Error = 0;
+			GO_Exit_Flag = 0;
 		}
 		if(GO_Key_Count >= 30) 
 		{
@@ -185,6 +188,7 @@ void GO_Key_Schedule_Task(void *pvParameters)
 		{
 			GO_Key_End = 0;
 		}
+		
 		vTaskDelay(50);
 		
     }
@@ -254,49 +258,6 @@ void State_Transition_Judge_Task(void *pvParameters)
 {
     while(1)		
     {
-//	 	if(RES_STATE == Emergency_Stop)
-//		{
-//		}
-//		else
-//		{
-//			if(RES_STATE == GO)
-//			{
-//				vTaskDelay(200);
-//				if(RES_Receiver_State  !=  RES_Receiver_GO) 
-//				{
-//					State_Error++;
-//				}
-//				if(State_Error >= 4)      RES_STATE = Old_RES_STATE ; 
-//					
-//			}
-//		
-//			if(RES_STATE == Ready)
-//			{
-//				vTaskDelay(200);
-//				if(RES_Receiver_State  !=  RES_Receiver_Ready)
-//				{
-//					State_Error++;
-//				}
-//				if(State_Error >= 4)      RES_STATE = Old_RES_STATE ; 
-//			}
-
-//			if(RES_STATE == Slow_Stop)
-//			{
-//				vTaskDelay(200);
-//				if(RES_Receiver_State  !=  RES_Receiver_Slow_Stop)
-//				{
-//					State_Error++;
-//				}
-//				if(State_Error >= 4)      RES_STATE = Old_RES_STATE ; 					
-//			}
-//		}
-//		
-//		
-//		if(State_Error >= 4) State_Error = 0;	
-//		
-
-//	vTaskDelay(200);
-
 		if(State_Switch_Count < 100 && State_Switch_Count > 0)
 		{
 			if(RES_STATE == Emergency_Stop )

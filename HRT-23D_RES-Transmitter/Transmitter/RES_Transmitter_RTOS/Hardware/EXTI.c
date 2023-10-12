@@ -6,6 +6,7 @@ int GO_Key_Flag = 0;
 int GO_Key_Count = 0;
 int Old_GO_Key_Flag = 0;
 int GO_Key_End = 0;
+uint8_t GO_Exit_Flag = 1;
 
 void KEY_Init(void)
 {
@@ -78,6 +79,7 @@ void EXTI4_IRQHandler(void)//GO_KEY
 		Old_GO_Key_Flag = GO_Key_Flag;
 		if(Go_Key_State == 0) GO_Key_Flag = 0;
 		else GO_Key_Flag = 1;
+		GO_Exit_Flag = 1;
 		
 		EXTI_ClearITPendingBit(EXTI_Line4);
 	}	

@@ -57,6 +57,7 @@ extern int GO_Key_Flag;
 extern int Old_GO_Key_Flag;
 extern int GO_Key_Count;
 extern int GO_Key_End;
+extern uint8_t GO_Exit_Flag;
 extern uint8_t Old_RES_STATE;
 extern float Voltage;
 extern int State_Error;
